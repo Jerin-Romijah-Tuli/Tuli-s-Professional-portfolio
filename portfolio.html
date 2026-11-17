@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jerin Romijah Tuli — Business, Analytics &amp; Technology</title>
+<meta name="description" content="Portfolio of Jerin Romijah Tuli: CSE graduate with project management, business analysis and AI experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f5;--panel:#fff;--line:#e4dfd8;--text:#1d1a22;--muted:#5f5867;--muted2:#8a8392;--c1:#e8552f;--c2:#5b52e8;--nav:rgba(255,255,255,.88);--grad:linear-gradient(100deg,#ff7a59,#6c63ff);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121016;--panel:#18151d;--line:#2a2530;--text:#f1eef2;--muted:#a79fae;--muted2:#6e6675;--c1:#ff7a59;--c2:#8d86ff;--nav:rgba(24,21,29,.88);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121016;--panel:#18151d;--line:#2a2530;--text:#f1eef2;--muted:#a79fae;--muted2:#6e6675;--c1:#ff7a59;--c2:#8d86ff;--nav:rgba(24,21,29,.88);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;padding:14px 0}
+.bar{max-width:1100px;margin:0 auto;padding:9px 9px 9px 20px;display:flex;align-items:center;gap:14px;background:var(--nav);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px}
+.mark{font-family:'Fraunces',Georgia,serif;font-size:17px;flex-shrink:0}
+nav{display:flex;gap:16px;font-size:13px;color:var(--muted);overflow-x:auto;white-space:nowrap;scrollbar-width:none;flex:1}
+nav::-webkit-scrollbar{display:none}
+nav a:hover{color:var(--text)}
+.pill{background:var(--grad);color:#12101a;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;white-space:nowrap}
+@media(max-width:560px){nav{display:none}.bar{justify-content:space-between}}
+section{padding:68px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border:none}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+.tag{display:flex;align-items:center;gap:10px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--c1);margin:0 0 12px}
+.tag i{width:20px;height:1px;background:var(--c1)}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;margin:0}
+h1{font-size:clamp(34px,5.4vw,52px);line-height:1.1;margin-bottom:14px}
+h2{font-size:30px;line-height:1.2;margin-bottom:30px}
+.hero{padding:50px 0 56px}
+.hero .grid{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}
+@media(max-width:740px){.hero .grid{grid-template-columns:1fr}}
+.lede{color:var(--muted);font-size:18px;max-width:50ch;margin:0 0 24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 13px;font:13px 'IBM Plex Mono',monospace;color:var(--muted);background:var(--panel)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:11px 20px;border-radius:10px;font-weight:600;font-size:14.5px;border:1px solid var(--line);background:var(--panel);transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--c2)}
+.btn.p{background:var(--grad);color:#12101a;border:none}
+.avatar{width:210px;height:210px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;background:var(--grad);font:500 56px 'Fraunces',Georgia,serif;color:#12101a;box-shadow:0 0 0 10px var(--panel),0 0 0 11px var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.stat,.card{border:1px solid var(--line);background:var(--panel);border-radius:14px}
+.stat{padding:20px 14px;text-align:center}
+.stat b{display:block;font:600 30px 'Fraunces',Georgia,serif;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--muted);line-height:1.4;display:block}
+.card{padding:22px 24px}
+.card h3{font-size:19px;margin-bottom:6px}
+.sub{color:var(--muted2);font:12.5px 'IBM Plex Mono',monospace;margin-bottom:10px;display:block}
+.card p,.card li{color:var(--muted);font-size:14.5px}
+.card p{margin:0}
+.card ul{margin:8px 0 0;padding-left:19px}
+.card li{margin-bottom:5px}
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+@media(max-width:720px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 14px;font-size:17px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.tab{font:600 14px 'Manrope',sans-serif;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:10px 18px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--grad);color:#12101a;border-color:transparent}
+.panel{display:none}.panel.on{display:block}
+.panel>.intro{color:var(--muted);max-width:62ch;margin:0 0 20px}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.fit{grid-template-columns:1fr}}
+.fit .card{padding:18px 20px}
+.fit h3{font:700 15px 'Manrope',sans-serif;margin-bottom:6px}
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.ti{position:relative;padding-bottom:30px}
+.ti:last-child{padding-bottom:0}
+.ti::before{content:"";position:absolute;left:-26px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--c2)}
+.ti h3{font-size:18px;margin-bottom:2px}
+.ti ul{margin:8px 0 0;padding-left:19px;color:var(--muted);font-size:14.5px}
+.ti li{margin-bottom:5px}
+.ti a,.card a.l{color:var(--c2);border-bottom:1px solid currentColor}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.g2{grid-template-columns:1fr}}
+.sk{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.sk{grid-template-columns:1fr}}
+.sk h4{font:700 12px 'Manrope',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2);margin:0 0 10px}
+.bx{display:flex;flex-wrap:wrap;gap:7px}
+.bx span{border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:13.5px}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:640px){.edu{grid-template-columns:1fr}}
+.cert{display:flex;gap:10px;font-size:14px;color:var(--text);padding:11px 15px}
+.cert b{color:var(--c1)}
+footer{padding:58px 0 24px}
+.ft{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;padding-bottom:36px}
+@media(max-width:680px){.ft{grid-template-columns:1fr}}
+.ft h2{margin-bottom:10px;font-size:26px}
+.ft p{color:var(--muted);margin:0;max-width:46ch;font-size:15px}
+.fc{display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+.fc a{color:var(--muted);border-bottom:1px solid var(--line);width:fit-content}
+.fc a:hover{color:var(--c1)}
+.fb{border-top:1px solid var(--line);padding-top:18px;color:var(--muted2);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="mark" href="#top">J. R. Tuli</a>
+<nav><a href="#about">About</a><a href="#strengths">Strengths</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+<a class="pill" href="#contact">Get in touch</a></div></header>
+<div id="top"></div>
+
+<section class="hero"><div class="wrap">
+<div class="grid">
+<div>
+<p class="tag rv"><i></i>CSE Graduate · RUET · CGPA 3.78/4.00</p>
+<h1 class="rv">Jerin Romijah Tuli<br><span class="gt">Technology-minded business problem solver.</span></h1>
+<p class="lede rv">I combine project management, business analysis and AI know-how to turn messy processes into clear, data-backed decisions, and to explain them to people who need the answer, not the code.</p>
+<div class="chips rv"><span class="chip">Business Analytics</span><span class="chip">Project Management</span><span class="chip">Data &amp; AI</span></div>
+<div class="btns rv"><a class="btn p" href="mailto:ramijahtuli786@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/jerin-romijah-tuli-491b5a31b/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Jerin-Romijah-Tuli" target="_blank" rel="noopener">GitHub</a></div>
+</div>
+<div class="rv"><div class="avatar">JRT</div></div>
+</div>
+<div class="stats rv">
+<div class="stat"><b class="gt">3.78</b><span>CGPA out of 4.00,<br>ranked 15th (unofficial)</span></div>
+<div class="stat"><b class="gt">2</b><span>Peer-reviewed papers<br>as first author</span></div>
+<div class="stat"><b class="gt">8 / 26</b><span>Rank in SemEval-2026<br>Task 8, led by me</span></div>
+<div class="stat"><b class="gt">3</b><span>Teams led across<br>research and projects</span></div>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<p class="tag rv"><i></i>About</p><h2 class="rv">Who I am</h2>
+<div class="about rv">
+<div>
+<p>I am a Computer Science and Engineering graduate from RUET who enjoys the point where technology meets a business question. I have led a system-analysis team, worked in an Agile AI healthcare team, and led a three-person research team to two peer-reviewed publications.</p>
+<p>I am looking for a role where I can learn quickly, take ownership, and grow into someone who can lead teams, understand customers and use data to make better decisions.</p>
+</div>
+<div class="card"><span class="sub">What I bring</span><ul><li>Leadership: scoping, assigning, tracking, delivering</li><li>Analysis: workflows, data, measurable results</li><li>Communication: reports, stakeholder presentations</li><li>Tech fluency: AI, ML, Python, SQL</li></ul></div>
+</div>
+</div></section>
+
+<section id="strengths"><div class="wrap">
+<p class="tag rv"><i></i>Strengths</p><h2 class="rv">What I bring to a team</h2>
+<p class="rv" style="color:var(--muted);max-width:62ch;margin:-14px 0 24px">Management potential, analytical thinking and technology fluency, each backed by something I have actually done.</p>
+<div class="fit rv">
+<div class="card"><h3>Leadership and ownership</h3><p>Led the Gizan Tech analysis team (scope, roles, deadlines, progress tracking) and the three-person MindFlayer research team from design to publication.</p></div>
+<div class="card"><h3>Strategic and analytical thinking</h3><p>Break complex problems into stages and choose approaches by measured results, for example cutting calibration error from 0.18 to 0.11 in LACR-ENS.</p></div>
+<div class="card"><h3>Project management</h3><p>Completed Project Management Essentials (FutureNation) and applied it daily: clear deadlines, defined responsibilities and Agile scrums in a Brain Station 23 team.</p></div>
+<div class="card"><h3>Business analytics and quantitative skills</h3><p>CGPA 3.78/4.00 in engineering; DataCamp Data Analyst Associate; Python, SQL and pandas for analysis and dashboards.</p></div>
+<div class="card"><h3>Process improvement and decision-making</h3><p>Identified workflow inefficiencies at Gizan Tech, proposed a centralised information flow, and favour decisions backed by evidence over guesswork.</p></div>
+<div class="card"><h3>Customer and operational understanding</h3><p>Mapped how organisations actually work, and completed HP LIFE Customer Experience (CX) for Business Success to keep the customer at the centre.</p></div>
+<div class="card"><h3>Technology and digital transformation</h3><p>Hands-on with AI, machine learning and NLP; built AI Doctor and a live face-analysis app; designed Data Flow Diagrams for centralised information management.</p></div>
+<div class="card"><h3>Communication and relationships</h3><p>Turn technical work into plain language for reports, papers and stakeholder presentations, and collaborate smoothly across technical and non-technical teams.</p></div>
+</div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+<p class="tag rv"><i></i>Experience</p><h2 class="rv">Experience and leadership</h2>
+<div class="tl rv">
+<div class="ti"><span class="sub">Mar 2025 · Dhaka</span><h3>Software Development Intern, Brain Station 23</h3><ul><li>Worked in a cross-functional Agile team on an AI-driven healthcare solution, joining daily scrums and code reviews.</li><li>Contributed to AI/ML model integration and production-grade software under senior engineers.</li></ul></div>
+<div class="ti"><span class="sub">2025</span><h3>Team Leader, System Analyst, Gizan Tech project</h3><ul><li>Defined project scope, assigned responsibilities, set deadlines and monitored progress.</li><li>Analysed workflows, identified inefficiencies and developed Data Flow Diagrams for centralised information management.</li><li>Presented findings and recommendations to stakeholders. <a href="https://github.com/Jerin-Romijah-Tuli/Gizan-Tech-s-Information-System-Analysis-and-Design" target="_blank" rel="noopener">View project</a></li></ul></div>
+<div class="ti"><span class="sub">2026</span><h3>Team Lead, MindFlayer (SemEval-2026)</h3><ul><li>Led three people from system design to experiments and paper writing; first author on two peer-reviewed papers (<a href="https://aclanthology.org/2026.semeval-1.293/" target="_blank" rel="noopener">DUALRAG</a>, <a href="https://aclanthology.org/2026.semeval-1.294/" target="_blank" rel="noopener">LACR-ENS</a>).</li><li>Ranked 8th of 26 teams in Task 8 with 100% refusal accuracy on unanswerable questions.</li></ul></div>
+<div class="ti"><span class="sub">2026</span><h3>Project Lead, Undergraduate Thesis</h3><ul><li>Owned the pipeline from data preparation to evaluation; reached 78.77% Macro-F1 on a subject-independent split.</li></ul></div>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<p class="tag rv"><i></i>Projects</p><h2 class="rv">Selected projects</h2>
+<div class="g2 rv">
+<div class="card"><h3>AI Doctor</h3><p>Flask chat app for health consultation with image/PDF upload, speech-to-text and spoken replies.</p><p style="margin-top:12px"><a class="l" href="https://github.com/Jerin-Romijah-Tuli/AI-Doctor" target="_blank" rel="noopener">GitHub →</a></p></div>
+<div class="card"><h3>Task Management with Analytics</h3><p>Django app with task tracking, notifications and productivity analytics.</p><p style="margin-top:12px"><a class="l" href="https://github.com/Jerin-Romijah-Tuli/Task_Management_with_Analytics" target="_blank" rel="noopener">GitHub →</a></p></div>
+<div class="card"><h3>Gender, Age &amp; Emotion Detection</h3><p>Deep-learning app with live webcam and photo predictions in a Gradio interface.</p><p style="margin-top:12px"><a class="l" href="https://github.com/Jerin-Romijah-Tuli/Gender-Age-Emotion-Detectation" target="_blank" rel="noopener">GitHub →</a></p></div>
+<div class="card"><h3>Gizan Tech Systems Analysis</h3><p>Team study of an organisation’s workflows with Data Flow Diagrams and improvement recommendations.</p><p style="margin-top:12px"><a class="l" href="https://github.com/Jerin-Romijah-Tuli/Gizan-Tech-s-Information-System-Analysis-and-Design" target="_blank" rel="noopener">GitHub →</a></p></div>
+</div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<p class="tag rv"><i></i>Skills</p><h2 class="rv">What I can do</h2>
+<div class="sk rv">
+<div class="card"><h4>Business &amp; management</h4><div class="bx"><span>Project management</span><span>Business analysis</span><span>Process modelling</span><span>Problem-solving</span><span>Leadership</span><span>Teamwork</span></div></div>
+<div class="card"><h4>Data &amp; analytics</h4><div class="bx"><span>Data analysis</span><span>Python</span><span>SQL</span><span>MySQL</span><span>pandas</span><span>Experimentation</span></div></div>
+<div class="card"><h4>Technology</h4><div class="bx"><span>AI / ML</span><span>NLP</span><span>Deep learning</span><span>PyTorch</span><span>Flask</span><span>Django</span><span>Agile</span></div></div>
+<div class="card"><h4>Communication</h4><div class="bx"><span>Report writing</span><span>Technical documentation</span><span>Presentation</span><span>Cross-functional collaboration</span></div></div>
+</div>
+</div></section>
+
+<section id="education"><div class="wrap">
+<p class="tag rv"><i></i>Education</p><h2 class="rv">Education and certifications</h2>
+<div class="card rv"><span class="sub">2022 – 2026</span><h3>B.Sc. in Computer Science and Engineering</h3><p>Rajshahi University of Engineering &amp; Technology (RUET) · CGPA 3.78/4.00 · unofficially ranked 15th in the department. Thesis: Automated EEG Sleep Stage Classification. Departmental farewell award recipient, CSE ’20 Series.</p></div>
+<div class="edu rv">
+<div class="card"><span class="sub">2020 – 2021</span><h3>HSC, Science</h3><p>Viqarunnisa Noon School &amp; College · GPA 5.00/5.00</p></div>
+<div class="card"><span class="sub">2018 – 2019</span><h3>SSC, Science</h3><p>Viqarunnisa Noon School &amp; College · GPA 5.00/5.00</p></div>
+</div>
+<div class="edu rv">
+<a class="card cert" href="https://drive.google.com/file/d/13z10TQ7lNq0hO-V3clxgiZQbFK-sUXg4/view?usp=sharing" target="_blank" rel="noopener"><b>✓</b>Project Management Essentials · FutureNation</a>
+<a class="card cert" href="https://www.life-global.org/certificate/59b6b997-743e-46c3-9a3b-6033e16b0e13" target="_blank" rel="noopener"><b>✓</b>Effective Leadership · HP LIFE</a>
+<a class="card cert" href="https://www.life-global.org/certificate/aa09d7d7-c291-4da7-a71c-b45289fde4e5" target="_blank" rel="noopener"><b>✓</b>Customer Experience (CX) for Business Success · HP LIFE</a>
+<a class="card cert" href="https://www.datacamp.com/certificate/DAA0010238255525" target="_blank" rel="noopener"><b>✓</b>Data Analyst Associate · DataCamp</a>
+<a class="card cert" href="https://www.coursera.org/account/accomplishments/verify/EHPWKB0JDN5V" target="_blank" rel="noopener"><b>✓</b>Machine Learning with Python · Coursera</a>
+<a class="card cert" href="https://training.edge.gov.bd/certificate-validation" target="_blank" rel="noopener"><b>✓</b>PHP (Laravel), 80 hours · EDGE</a>
+</div>
+</div></section>
+
+<footer id="contact"><div class="wrap rv">
+<div class="ft">
+<div><h2>Let’s talk</h2><p>I am looking for a role where I can learn fast, take ownership and grow into leadership. I would be glad to share more detail on any project or to talk about how I can contribute.</p></div>
+<div class="fc">
+<a href="mailto:ramijahtuli786@gmail.com">ramijahtuli786@gmail.com</a>
+<a href="tel:+8801745036848">+880 1745-036848</a>
+<a href="https://www.linkedin.com/in/jerin-romijah-tuli-491b5a31b/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://github.com/Jerin-Romijah-Tuli" target="_blank" rel="noopener">GitHub</a>
+<a href="https://jerin-romijah-tuli.github.io" target="_blank" rel="noopener">Research portfolio</a>
+</div></div>
+<div class="fb"><span>© 2026 Jerin Romijah Tuli</span><span>Dhaka, Bangladesh</span></div>
+</div></footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:0.08});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('on');});}
+})();
+</script>
+</body>
+</html>
