@@ -17,20 +17,26 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px)
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
 a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--c2);outline-offset:3px}
 .wrap{max-width:940px;margin:0 auto;padding:0 24px}
 .gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:var(--grad);z-index:60}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;padding:14px 0}
 .bar{max-width:1100px;margin:0 auto;padding:9px 9px 9px 20px;display:flex;align-items:center;gap:14px;background:var(--nav);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px}
 .mark{font-family:'Fraunces',Georgia,serif;font-size:17px;flex-shrink:0}
 nav{display:flex;gap:16px;font-size:13px;color:var(--muted);overflow-x:auto;white-space:nowrap;scrollbar-width:none;flex:1}
 nav::-webkit-scrollbar{display:none}
-nav a:hover{color:var(--text)}
-.pill{background:var(--grad);color:#12101a;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;white-space:nowrap}
+nav a:hover,nav a.act{color:var(--text)}
+nav a.act{font-weight:700}
+.pill{background:var(--grad);color:#12101a;font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;white-space:nowrap;border:none;cursor:pointer}
+.ico{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;font-size:15px;flex-shrink:0}
 @media(max-width:560px){nav{display:none}.bar{justify-content:space-between}}
 section{padding:68px 0;border-bottom:1px solid var(--line)}
 section:last-of-type{border:none}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 .tag{display:flex;align-items:center;gap:10px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--c1);margin:0 0 12px}
 .tag i{width:20px;height:1px;background:var(--c1)}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;margin:0}
@@ -43,10 +49,11 @@ h2{font-size:30px;line-height:1.2;margin-bottom:30px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .chip{border:1px solid var(--line);border-radius:999px;padding:5px 13px;font:13px 'IBM Plex Mono',monospace;color:var(--muted);background:var(--panel)}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{padding:11px 20px;border-radius:10px;font-weight:600;font-size:14.5px;border:1px solid var(--line);background:var(--panel);transition:transform .15s,border-color .15s}
+.btn{padding:11px 20px;border-radius:10px;font-weight:600;font-size:14.5px;border:1px solid var(--line);background:var(--panel);color:var(--text);transition:transform .15s,border-color .15s;cursor:pointer;display:inline-block}
 .btn:hover{transform:translateY(-1px);border-color:var(--c2)}
 .btn.p{background:var(--grad);color:#12101a;border:none}
-.avatar{width:210px;height:210px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;background:var(--grad);font:500 56px 'Fraunces',Georgia,serif;color:#12101a;box-shadow:0 0 0 10px var(--panel),0 0 0 11px var(--line)}
+.avatar{width:210px;height:210px;border-radius:50%;overflow:hidden;margin:0 auto;display:flex;align-items:center;justify-content:center;background:var(--grad);font:500 56px 'Fraunces',Georgia,serif;color:#12101a;box-shadow:0 0 0 10px var(--panel),0 0 0 11px var(--line)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
 @media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
 .stat,.card{border:1px solid var(--line);background:var(--panel);border-radius:14px}
@@ -60,14 +67,10 @@ h2{font-size:30px;line-height:1.2;margin-bottom:30px}
 .card p{margin:0}
 .card ul{margin:8px 0 0;padding-left:19px}
 .card li{margin-bottom:5px}
+.card a.l{color:var(--c2);border-bottom:1px solid currentColor}
 .about{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
 @media(max-width:720px){.about{grid-template-columns:1fr}}
 .about p{margin:0 0 14px;font-size:17px}
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
-.tab{font:600 14px 'Manrope',sans-serif;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:10px 18px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--grad);color:#12101a;border-color:transparent}
-.panel{display:none}.panel.on{display:block}
-.panel>.intro{color:var(--muted);max-width:62ch;margin:0 0 20px}
 .fit{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.fit{grid-template-columns:1fr}}
 .fit .card{padding:18px 20px}
@@ -80,7 +83,7 @@ h2{font-size:30px;line-height:1.2;margin-bottom:30px}
 .ti h3{font-size:18px;margin-bottom:2px}
 .ti ul{margin:8px 0 0;padding-left:19px;color:var(--muted);font-size:14.5px}
 .ti li{margin-bottom:5px}
-.ti a,.card a.l{color:var(--c2);border-bottom:1px solid currentColor}
+.ti a{color:var(--c2);border-bottom:1px solid currentColor}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.g2{grid-template-columns:1fr}}
 .sk{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -92,6 +95,27 @@ h2{font-size:30px;line-height:1.2;margin-bottom:30px}
 @media(max-width:640px){.edu{grid-template-columns:1fr}}
 .cert{display:flex;gap:10px;font-size:14px;color:var(--text);padding:11px 15px}
 .cert b{color:var(--c1)}
+
+/* CV viewer */
+.cvbox{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:stretch}
+@media(max-width:760px){.cvbox{grid-template-columns:1fr}}
+.cvside{display:flex;flex-direction:column;gap:14px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.jump button{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer}
+.jump button:hover{border-color:var(--c2)}
+.cvframe{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);min-height:520px}
+.cvframe iframe{width:100%;height:100%;min-height:520px;border:0;display:block}
+.cvfall{position:absolute;inset:auto 0 0 0;padding:10px 14px;font-size:12.5px;color:var(--muted);background:var(--nav);border-top:1px solid var(--line)}
+.cvfall a{color:var(--c2);border-bottom:1px solid currentColor}
+#cvm{position:fixed;inset:0;z-index:100;display:none;background:rgba(10,8,14,.72);backdrop-filter:blur(4px);padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+#cvm.on{display:flex;flex-direction:column;animation:pop .22s ease-out}
+@keyframes pop{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+.mh{max-width:1000px;width:100%;margin:0 auto 10px;display:flex;gap:10px;align-items:center;color:#fff}
+.mh b{font:500 17px 'Fraunces',Georgia,serif;flex:1}
+.mh .btn{padding:8px 14px;font-size:13px}
+.mb{max-width:1000px;width:100%;margin:0 auto;flex:1;border-radius:14px;overflow:hidden;background:var(--panel)}
+.mb iframe{width:100%;height:100%;border:0}
+
 footer{padding:58px 0 24px}
 .ft{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;padding-bottom:36px}
 @media(max-width:680px){.ft{grid-template-columns:1fr}}
@@ -104,9 +128,11 @@ footer{padding:58px 0 24px}
 </style>
 </head>
 <body>
+<div id="prog"></div>
 <header><div class="bar"><a class="mark" href="#top">J. R. Tuli</a>
-<nav><a href="#about">About</a><a href="#strengths">Strengths</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
-<a class="pill" href="#contact">Get in touch</a></div></header>
+<nav id="nv"><a href="#about">About</a><a href="#strengths">Strengths</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#cv">CV</a><a href="#contact">Contact</a></nav>
+<button class="ico" id="theme" type="button" aria-label="Toggle light or dark mode">◐</button>
+<button class="pill" type="button" data-cv>View CV</button></div></header>
 <div id="top"></div>
 
 <section class="hero"><div class="wrap">
@@ -116,33 +142,10 @@ footer{padding:58px 0 24px}
 <h1 class="rv">Jerin Romijah Tuli<br><span class="gt">Technology-minded business problem solver.</span></h1>
 <p class="lede rv">I combine project management, business analysis and AI know-how to turn messy processes into clear, data-backed decisions, and to explain them to people who need the answer, not the code.</p>
 <div class="chips rv"><span class="chip">Business Analytics</span><span class="chip">Project Management</span><span class="chip">Data &amp; AI</span></div>
-<div class="btns rv"><a class="btn p" href="mailto:ramijahtuli786@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/jerin-romijah-tuli-491b5a31b/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Jerin-Romijah-Tuli" target="_blank" rel="noopener">GitHub</a></div>
+<div class="btns rv"><button class="btn p" type="button" data-cv>View my CV</button><a class="btn" href="mailto:ramijahtuli786@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/jerin-romijah-tuli-491b5a31b/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Jerin-Romijah-Tuli" target="_blank" rel="noopener">GitHub</a></div>
 </div>
 <div class="rv">
-  <style>
-    .avatar {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(100deg, #ff7a59, #6c63ff);
-      box-shadow: 0 0 0 10px var(--panel, #fff), 0 0 0 11px var(--line, #e4dfd8);
-    }
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  </style>
-  <div class="avatar">
-    <img src="dp2.jpg" alt="JRT">
-  </div>
-</div>
+  <div class="avatar"><img src="dp2.jpg" alt="Jerin Romijah Tuli" onerror="this.remove();this.parentNode&&(this.parentNode.textContent='JRT')"></div>
 </div>
 </div>
 <div class="stats rv">
@@ -226,6 +229,19 @@ footer{padding:58px 0 24px}
 </div>
 </div></section>
 
+<section id="cv"><div class="wrap">
+<p class="tag rv"><i></i>Curriculum vitae</p><h2 class="rv">Read my CV without leaving the page</h2>
+<div class="cvbox rv">
+<div class="cvside">
+<div class="card"><span class="sub">Two-page CV · PDF</span><h3>Business, analytics and technology</h3><p>Experience, leadership, projects, skills and certifications on two pages. Jump straight to the part you need:</p>
+<div class="jump"><button type="button" data-p="1">Experience</button><button type="button" data-p="1">Research</button><button type="button" data-p="2">Projects</button><button type="button" data-p="2">Certifications</button></div></div>
+<div class="btns"><button class="btn p" type="button" data-cv>Open full screen</button><a class="btn" href="Jerin_Romijah_Tuli_CV_Final_mtb.pdf" download>Download PDF</a></div>
+</div>
+<div class="cvframe"><iframe id="pv" title="CV preview" loading="lazy" data-src="Jerin_Romijah_Tuli_CV_Final_mtb.pdf"></iframe>
+<div class="cvfall">Preview blank on your phone? <a href="Jerin_Romijah_Tuli_CV_Final_mtb.pdf" target="_blank" rel="noopener">Open the CV in a new tab</a>.</div></div>
+</div>
+</div></section>
+
 <footer id="contact"><div class="wrap rv">
 <div class="ft">
 <div><h2>Let’s talk</h2><p>I am looking for a role where I can learn fast, take ownership and grow into leadership. I would be glad to share more detail on any project or to talk about how I can contribute.</p></div>
@@ -239,13 +255,52 @@ footer{padding:58px 0 24px}
 <div class="fb"><span>© 2026 Jerin Romijah Tuli</span><span>Dhaka, Bangladesh</span></div>
 </div></footer>
 
+<div id="cvm" role="dialog" aria-modal="true" aria-label="CV viewer">
+<div class="mh"><b>Jerin Romijah Tuli · CV</b><a class="btn" href="Jerin_Romijah_Tuli_CV_Final_mtb.pdf" download>Download</a><a class="btn" href="Jerin_Romijah_Tuli_CV_Final_mtb.pdf" target="_blank" rel="noopener">New tab</a><button class="btn" type="button" id="cx">Close ✕</button></div>
+<div class="mb"><iframe id="mf" title="CV full view"></iframe></div>
+</div>
+
 <script>
 (function(){
+  var PDF='Jerin_Romijah_Tuli_CV_Final_mtb.pdf',root=document.documentElement;
+  // reveal on scroll
   var els=document.querySelectorAll('.rv');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:0.08});
     els.forEach(function(el){io.observe(el);});
   }else{els.forEach(function(el){el.classList.add('on');});}
+  // scroll progress
+  var pr=document.getElementById('prog');
+  function sp(){var h=root.scrollHeight-innerHeight;pr.style.width=(h>0?scrollY/h*100:0)+'%';}
+  addEventListener('scroll',sp,{passive:true});sp();
+  // active nav link
+  var links=[].slice.call(document.querySelectorAll('#nv a'));
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){so.observe(s);});
+  }
+  // theme toggle (remembered per browser)
+  try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);
+    try{localStorage.setItem('theme',nx);}catch(e){}
+  });
+  // inline preview loads when scrolled near
+  var pv=document.getElementById('pv');
+  function loadPv(p){pv.src=PDF+'#page='+(p||1)+'&view=FitH';}
+  if('IntersectionObserver' in window){
+    var po=new IntersectionObserver(function(es){if(es[0].isIntersecting){loadPv(1);po.disconnect();}},{rootMargin:'300px'});po.observe(pv);
+  }else{loadPv(1);}
+  document.querySelectorAll('.jump button').forEach(function(b){b.addEventListener('click',function(){pv.src='about:blank';setTimeout(function(){loadPv(b.getAttribute('data-p'));},30);});});
+  // full-screen viewer
+  var m=document.getElementById('cvm'),mf=document.getElementById('mf'),last=null;
+  function open(){last=document.activeElement;mf.src=PDF+'#view=FitH';m.classList.add('on');document.body.style.overflow='hidden';document.getElementById('cx').focus();}
+  function close(){m.classList.remove('on');document.body.style.overflow='';mf.src='about:blank';if(last)last.focus();}
+  document.querySelectorAll('[data-cv]').forEach(function(b){b.addEventListener('click',open);});
+  document.getElementById('cx').addEventListener('click',close);
+  m.addEventListener('click',function(e){if(e.target===m)close();});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close();});
 })();
 </script>
 </body>
